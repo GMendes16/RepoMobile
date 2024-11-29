@@ -16,7 +16,7 @@ import google from '../../assets/google.png'
 import { MaterialIcons, Zocial, Ionicons,Octicons } from '@expo/vector-icons'
 import { themas, } from '../../global/themes';
 import { useState } from 'react';
-import { Input } from '../../components/input';
+import { Input } from '../../components/Input';
 import { Button } from '../../components/button'; 
 import {useNavigation, NavigationProp} from '@react-navigation/native'
 
@@ -73,8 +73,8 @@ export default function Login() {
                 title="SENHA"
                 IconRigth={Octicons}
                 IconRightName={showPassword?"eye-closed":"eye"}
-                //secureTextEntry={showPassword}
-                //onIconRigthPress={()=>setShowPassword(!showPassword)}
+                // secureTextEntry={showPassword}
+                // onIconRigthPress={()=>setShowPassword(!showPassword)}
 
                 />
                 <Button onPress={()=>getLogin()}

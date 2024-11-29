@@ -1,5 +1,5 @@
 import React, { forwardRef, Fragment, LegacyRef } from "react";
-import { View, Text, TextInput, TextInputProps, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput,StyleProp, TextInputProps, TouchableOpacity, TextStyle } from 'react-native';
 import { style } from "./style";
 import { themas } from "../../global/themes";
 
@@ -18,11 +18,13 @@ type Props = TextInputProps & {
     title?: string,
     onIconleftPress?: () => void,
     onIconRigthPress?: () => void,
+    height?:number,
+    labelStyle?:StyleProp<TextStyle> 
 }
 
 export const Input = forwardRef((props: Props, ref: LegacyRef<TextInput> | null) => {
 
-    const { Iconleft, IconRigth, IconleftName, IconRightName, onIconleftPress, title, onIconRigthPress, ...rest } = props;
+    const { Iconleft, IconRigth, IconleftName, IconRightName, onIconleftPress, title, onIconRigthPress,labelStyle,height, ...rest } = props;
         
     const calculateSizeWidth = () =>{
         if(Iconleft && IconRigth){
@@ -35,15 +37,15 @@ export const Input = forwardRef((props: Props, ref: LegacyRef<TextInput> | null)
 
     return (
         <Fragment>
-            <Text style={style.titleInput}>{title}</Text>
-            <View style={style.boxInput}>
+            <Text style={[style.titleInput,labelStyle]}>{title}</Text>
+            <View style={[style.boxInput,{height:height||40,padding:10}]}> 
                 {Iconleft && IconleftName && (
                     <TouchableOpacity onPress={onIconleftPress}>
                         <Iconleft name={IconleftName as any} size={20} color={themas.colors.gray} style={style.Icon} />
                     </TouchableOpacity>
                 )}
                  <TextInput
-                    style={[style.input,{width:calculateSizeWidth()}
+                    style={[style.input,{width:calculateSizeWidth(),height:'100%'}
                     ]}
                     {...rest}
                />

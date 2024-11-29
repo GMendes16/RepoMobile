@@ -5,7 +5,7 @@ import { style } from "./style";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AuthContextList } from "../../context/authcontext_list";
 
-export default({state, navigation })=>{
+export default({state, navigation})=>{
 
     const {onOpen}= useContext<any>(AuthContextList)
    

@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import List from '../pages/list';
 import User from '../pages/user';
-import Custombarra from '../components/custombarra';
+import Custombarra from '../components/Custombarra';
 import { AuthProviderList } from '../context/authcontext_list';
 
 const Tab = createBottomTabNavigator();
@@ -13,7 +13,7 @@ export default function BottomRoutes(){
       
     <Tab.Navigator
         screenOptions={{
-            headerShown:true
+            headerShown:false,
         }}
         tabBar={pros=><Custombarra {...pros}/>}
 
